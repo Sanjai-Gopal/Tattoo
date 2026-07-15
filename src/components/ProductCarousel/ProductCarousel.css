@@ -1,0 +1,85 @@
+.carousel-tabs {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.carousel-tab {
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--color-field);
+  border-radius: 2px;
+  transition: all 0.2s;
+  color: var(--color-text-light);
+}
+
+.carousel-tab:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.carousel-tab.active {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.carousel-wrapper {
+  margin: 0 -10px;
+}
+
+.carousel-wrapper .swiper-button-prev,
+.carousel-wrapper .swiper-button-next {
+  color: var(--color-black);
+  width: 40px;
+  height: 40px;
+  background: var(--color-white);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.carousel-wrapper .swiper-button-prev::after,
+.carousel-wrapper .swiper-button-next::after {
+  font-size: 16px;
+}
+
+.carousel-wrapper .swiper-button-prev {
+  left: -4px;
+}
+
+.carousel-wrapper .swiper-button-next {
+  right: -4px;
+}
+
+@media (max-width: 767px) {
+  .carousel-wrapper .swiper-button-prev,
+  .carousel-wrapper .swiper-button-next {
+    display: none;
+  }
+}
+
+.carousel-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.shop-all-btn {
+  display: inline-block;
+  padding: 12px 40px;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.shop-all-btn:hover {
+  background: var(--color-accent);
+}
