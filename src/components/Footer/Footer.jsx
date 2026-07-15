@@ -8,7 +8,7 @@ function Footer() {
         <div className="container">
           <div className="footer-grid">
             <div className="footer-col">
-              <h3 className="footer-logo">INK<span>HUB</span></h3>
+              <h3 className="footer-logo">Chennai<span>Hub</span></h3>
               <p className="footer-desc">
                 India's #1 destination for semi-permanent tattoos. Pain-free, waterproof, and lasts 1-2 weeks. Trusted by 5M+ customers.
               </p>
@@ -92,7 +92,8 @@ function Footer() {
 
       <div className="footer-bottom">
         <div className="container">
-          <p>&copy; 2026 INKHUB. All rights reserved.</p>
+          <p>&copy; 2026 Chennai Hub. All rights reserved.</p>
+          <p className="made-by">Made by <a href="https://sanjai-alpha.vercel.app/" target="_blank" rel="noopener noreferrer">Sanjai</a></p>
         </div>
       </div>
     </footer>

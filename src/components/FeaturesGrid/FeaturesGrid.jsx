@@ -5,7 +5,7 @@ function FeaturesGrid() {
   return (
     <section className="features-section section-padding" style={{background: 'var(--color-secondary-bg)'}}>
       <div className="container">
-        <h2 className="section-title">Why Everyone's Switching to InkHub</h2>
+        <h2 className="section-title">Why Everyone's Switching to Chennai Hub</h2>
         <div className="features-grid">
           {features.map((feature, i) => (
             <div key={i} className="feature-item">

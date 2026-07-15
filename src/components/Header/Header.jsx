@@ -46,7 +46,7 @@ function Header() {
       <header className="header">
         <div className="header-inner">
           <Link to="/" className="header-logo">
-            INK<span>HUB</span>
+            Chennai<span>Hub</span>
           </Link>
 
           <nav className="header-nav">
@@ -89,7 +89,7 @@ function Header() {
       <div className={`mobile-overlay ${mobileOpen ? 'open' : ''}`} onClick={() => setMobileOpen(false)} />
       <div className={`mobile-nav ${mobileOpen ? 'open' : ''}`}>
         <div className="mobile-nav-header">
-          <span className="header-logo" style={{fontSize: 22}}>INK<span>HUB</span></span>
+          <span className="header-logo" style={{fontSize: 22}}>Chennai<span>Hub</span></span>
           <button className="mobile-nav-close" onClick={() => setMobileOpen(false)}>&times;</button>
         </div>
         <div className="mobile-nav-links">

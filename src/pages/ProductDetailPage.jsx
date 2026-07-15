@@ -119,7 +119,7 @@ function ProductDetailPage() {
 
             <div className="pd-meta">
               <div className="pd-meta-item">
-                <strong>SKU:</strong> INK-{String(product.id).padStart(4, '0')}
+                <strong>SKU:</strong> CHNHUB-{String(product.id).padStart(4, '0')}
               </div>
               <div className="pd-meta-item">
                 <strong>Category:</strong> {product.tags.map(t => t.charAt(0).toUpperCase() + t.slice(1)).join(', ')}
