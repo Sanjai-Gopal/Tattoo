@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { collections } from '../../data/products';
 import './CategoryCards.css';
 
@@ -6,7 +6,7 @@ function CategoryCards() {
   return (
     <section className="category-cards section-padding">
       <div className="container">
-        <div className="category-grid">
+        <div className="category-grid reveal-stagger">
           {collections.map((col) => (
             <Link
               key={col.slug}

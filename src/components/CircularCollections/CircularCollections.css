@@ -19,6 +19,13 @@
   align-items: center;
   text-align: center;
   gap: 10px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .circular-item:hover {
+    transform: translateY(-4px);
+  }
 }
 
 .circular-img {
@@ -27,12 +34,16 @@
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--color-border);
-  transition: border-color 0.3s, transform 0.3s;
+  transition:
+    border-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .circular-item:hover .circular-img {
   border-color: var(--color-accent);
   transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(214, 58, 47, 0.2);
 }
 
 .circular-img img {

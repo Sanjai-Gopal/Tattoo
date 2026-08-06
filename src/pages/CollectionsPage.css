@@ -102,6 +102,12 @@
   padding: 60px 20px;
 }
 
+.collections-empty h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
 .collections-empty p {
   font-size: 16px;
   color: var(--color-text-light);

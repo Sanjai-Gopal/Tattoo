@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { circularCollections } from '../../data/products';
 import './CircularCollections.css';
 
@@ -7,7 +7,7 @@ function CircularCollections() {
     <section className="circular-collections section-padding">
       <div className="container">
         <h2 className="section-title">2-WEEK SEMI-PERMANENT TATTOOS</h2>
-        <div className="circular-grid">
+        <div className="circular-grid reveal-stagger">
           {circularCollections.map((col) => (
             <Link
               key={col.slug}

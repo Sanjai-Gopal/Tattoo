@@ -7,10 +7,22 @@
 .stars {
   display: flex;
   gap: 1px;
+  transition: transform 0.2s ease;
 }
 
 .star {
   display: block;
+  transition: transform 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .stars:hover {
+    transform: scale(1.08);
+  }
+
+  .stars:hover .star:nth-child(even) {
+    transform: translateY(-1px) rotate(4deg);
+  }
 }
 
 .review-count {

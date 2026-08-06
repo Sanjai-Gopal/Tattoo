@@ -1,5 +1,59 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link } from 'react-router';
+import AnimatedNumber from '../AnimatedNumber/AnimatedNumber';
 import './Footer.css';
+
+function NewsletterForm() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    if (!valid) {
+      setStatus('error');
+      return;
+    }
+    try {
+      const subs = JSON.parse(
+        window.localStorage.getItem('chennaihub-subscribers') || '[]',
+      );
+      subs.push({ email: email.trim(), at: new Date().toISOString() });
+      window.localStorage.setItem('chennaihub-subscribers', JSON.stringify(subs));
+    } catch {
+      /* storage unavailable — ignore */
+    }
+    setStatus('success');
+    setEmail('');
+  };
+
+  return (
+    <form className="newsletter-form" onSubmit={handleSubmit} noValidate>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        aria-label="Email address"
+        aria-invalid={status === 'error'}
+        autoComplete="email"
+        required
+      />
+      <button type="submit">Subscribe</button>
+      {status === 'error' && (
+        <p className="newsletter-msg newsletter-msg-error" role="alert">
+          Please enter a valid email address.
+        </p>
+      )}
+      {status === 'success' && (
+        <p className="newsletter-msg newsletter-msg-success" role="status">
+          Thanks for subscribing!
+        </p>
+      )}
+    </form>
+  );
+}
 
 function Footer() {
   return (
@@ -10,7 +64,7 @@ function Footer() {
             <div className="footer-col">
               <h3 className="footer-logo">Chennai<span>Hub</span></h3>
               <p className="footer-desc">
-                India's #1 destination for semi-permanent tattoos. Pain-free, waterproof, and lasts 1-2 weeks. Trusted by 5M+ customers.
+                India's #1 destination for semi-permanent tattoos. Pain-free, waterproof, and lasts 1-2 weeks. Trusted by <AnimatedNumber value={5} suffix="M+" /> customers.
               </p>
               <div className="footer-social">
                 <a href="#" aria-label="Instagram">
@@ -83,10 +137,7 @@ function Footer() {
         <div className="container">
           <h4>Subscribe to our newsletter</h4>
           <p>Get the latest updates on new tattoos and exclusive offers.</p>
-          <form className="newsletter-form" onSubmit={e => e.preventDefault()}>
-            <input type="email" placeholder="Enter your email" />
-            <button type="submit">Subscribe</button>
-          </form>
+          <NewsletterForm />
         </div>
       </div>
 

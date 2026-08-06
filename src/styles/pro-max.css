@@ -1,0 +1,187 @@
+/* ============================================================
+   ProMax UI/UX — global micro-interactions & polish
+   Loaded last so it cleanly layers over component styles.
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(214, 58, 47, 0.16);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 6px;
+  border: 2px solid var(--color-white);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+/* ---- Unified interactive transition + hover/active feel ---- */
+.hero-cta,
+.shop-all-btn,
+.promo-cta,
+.carousel-tab,
+.filter-tag,
+.pd-add-to-cart,
+.pd-buy-now,
+.newsletter-form button,
+.collections-empty button,
+.swiper-button-prev,
+.swiper-button-next {
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-cta:hover,
+  .shop-all-btn:hover,
+  .promo-cta:hover,
+  .carousel-tab:hover,
+  .filter-tag:hover,
+  .pd-add-to-cart:hover,
+  .pd-buy-now:hover,
+  .newsletter-form button:hover,
+  .collections-empty button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    transform: scale(1.12);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.hero-cta:active,
+.shop-all-btn:active,
+.promo-cta:active,
+.carousel-tab:active,
+.filter-tag:active,
+.pd-add-to-cart:active,
+.pd-buy-now:active,
+.newsletter-form button:active,
+.collections-empty button:active {
+  transform: scale(0.97);
+}
+
+/* ---- Animated underline on links (slide left → right) ---- */
+.header-nav a,
+.header-nav .nav-item > span,
+.footer-col ul li a,
+.collections-breadcrumb a,
+.pd-breadcrumb a,
+.product-card-name {
+  position: relative;
+}
+
+.header-nav a::after,
+.header-nav .nav-item > span::after,
+.footer-col ul li a::after,
+.collections-breadcrumb a::after,
+.pd-breadcrumb a::after,
+.product-card-name::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-nav a:hover::after,
+.header-nav .nav-item > span:hover::after,
+.footer-col ul li a:hover::after,
+.collections-breadcrumb a:hover::after,
+.pd-breadcrumb a:hover::after,
+.product-card-name:hover::after {
+  transform: scaleX(1);
+}
+
+.product-card-name::after {
+  bottom: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-social a,
+  .header-actions button,
+  .header-actions a {
+    transition:
+      transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .footer-social a:hover {
+    transform: translateY(-4px) scale(1.06);
+    border-color: var(--color-accent);
+    color: var(--color-white);
+    box-shadow: 0 8px 18px rgba(214, 58, 47, 0.28);
+  }
+
+  .header-actions button:hover,
+  .header-actions a:hover {
+    transform: translateY(-2px) scale(1.06);
+    color: var(--color-accent);
+  }
+}
+
+/* ---- Tap targets at least 44px on touch, no hover traps ---- */
+@media (hover: none), (pointer: coarse) {
+  .header-actions button,
+  .mobile-menu-btn,
+  .mobile-nav-close,
+  .pd-qty-control button,
+  .carousel-tab,
+  .filter-tag,
+  .hero-cta,
+  .shop-all-btn,
+  .promo-cta {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .carousel-tab,
+  .filter-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ---- Reduced motion: keep everything safe & instant ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
