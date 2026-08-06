@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import useInView from '../../hooks/useInView'
 
 function AnimatedNumber({
@@ -9,29 +9,27 @@ function AnimatedNumber({
   decimals = 0,
 }) {
   const { ref, inView } = useInView({ threshold: 0.4 })
-  const [started, setStarted] = useState(false)
   const [display, setDisplay] = useState(0)
+  const rafRef = useRef(null)
 
   useEffect(() => {
-    if (!inView || started) return undefined
-    setStarted(true)
+    if (!inView) return undefined
 
-    let raf
     const start = performance.now()
-    const tick = (now) => {
+    const tick = now => {
       const progress = Math.min((now - start) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
       setDisplay(value * eased)
       if (progress < 1) {
-        raf = requestAnimationFrame(tick)
+        rafRef.current = requestAnimationFrame(tick)
       } else {
         setDisplay(value)
       }
     }
-    raf = requestAnimationFrame(tick)
+    rafRef.current = requestAnimationFrame(tick)
 
-    return () => cancelAnimationFrame(raf)
-  }, [inView, started, value, duration])
+    return () => cancelAnimationFrame(rafRef.current)
+  }, [inView, value, duration])
 
   const text = decimals > 0 ? display.toFixed(decimals) : Math.round(display).toString()
 
