@@ -15,9 +15,9 @@
 
 <br><br>
 
-<a href="https://raw.githubusercontent.com/Sanjai-Gopal/Tattoo2/main/docs/tattoo-preview.png">
+<a href="https://raw.githubusercontent.com/Sanjai-Gopal/Tattoo/main/docs/tattoo-preview.png">
   <img
-    src="https://raw.githubusercontent.com/Sanjai-Gopal/Tattoo2/main/docs/tattoo-preview.png"
+    src="https://raw.githubusercontent.com/Sanjai-Gopal/Tattoo/main/docs/tattoo-preview.png"
     alt="Tattoo Studio Website Preview"
     width="92%"
   />
